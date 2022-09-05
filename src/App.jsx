@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [latitude, setLatitude] = useState()
-  const [longitude, setLongitude] = useState()
+  const [latitude, setLatitude] = useState(0)
+  const [longitude, setLongitude] = useState(0)
 
   const apiKey = "5879d53253530d398b0f24a36d531e3e";
   const [coordinates, setCoordinates] = useState({})
@@ -18,6 +18,9 @@ function App() {
   console.log("primero");
   console.log(latitude, longitude);
   navigator.geolocation.getCurrentPosition(success);
+
+  const celcius = (coordinates.main?.temp - 273.15).toFixed(2);
+  
 
     useEffect(() => {      
 
@@ -33,8 +36,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{latitude}</h1>
-      <h1>{longitude}</h1>
+      <h1>{coordinates.sys?.country}</h1>
+      <img src="http://openweathermap.org/img/wn/10n@2x.png" alt="" />
+      <div>Ciudad: {coordinates.name}</div>
+      <div>Temperatura: {celcius} °C</div>
+      <button>Change to farenhey</button>
     </div>
   )
 }
