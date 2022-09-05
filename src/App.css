@@ -32,7 +32,8 @@ button{
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
-    color: rgb(84, 84, 84);
+    color: white;
+    background: orange;
 }
 
 img{
@@ -41,10 +42,7 @@ img{
 
 button:hover{
     cursor: pointer;
-    background: orange;
-    color: white;
-    
-
+    color: rgb(0, 0, 0);
 }
 
 h1{
